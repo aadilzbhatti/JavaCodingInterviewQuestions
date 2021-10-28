@@ -1,4 +1,4 @@
-package interviewing.datastructures.Graph;
+package interviewing.datastructures.graphs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

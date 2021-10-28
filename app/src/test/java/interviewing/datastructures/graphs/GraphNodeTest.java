@@ -1,4 +1,4 @@
-package interviewing.datastructures.Graph;
+package interviewing.datastructures.graphs;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

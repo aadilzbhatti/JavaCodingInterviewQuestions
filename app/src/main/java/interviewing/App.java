@@ -3,8 +3,11 @@
  */
 package interviewing;
 
+import interviewing.datastructures.trees.BinaryTree;
 import interviewing.datastructures.trees.TreeNode;
 import interviewing.datastructures.trees.TreeQuestions;
+
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
@@ -35,8 +38,8 @@ public class App {
 //        root.preOrderTraversal(System.out::println);
 //        root.printTree();
 
-        TreeNode root = (TreeNode) TreeQuestions.buildFromSortedArray(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 });
-        root.printTree();
+//        TreeNode root = (TreeNode) TreeQuestions.buildFromSortedArray(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 });
+//        root.printTree();
 
 //        GraphNode root = new GraphNode(0);
 //        GraphNode n1 = new GraphNode(1);
@@ -55,5 +58,17 @@ public class App {
 //        n3.addChild(n4);
 //
 //        root.breadthFirstSearch(System.out::println);
+
+        BinaryTree root = new TreeNode(4,
+                new TreeNode(2,
+                        new TreeNode(1, null, null),
+                        new TreeNode(3, null, null)
+                ), new TreeNode(6,
+                    new TreeNode(5, null, null),
+                    new TreeNode(7, null, null)
+                )
+        );
+
+        System.out.println(TreeQuestions.allPossibleBstSequences(root));
     }
 }

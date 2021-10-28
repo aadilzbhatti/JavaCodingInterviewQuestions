@@ -6,12 +6,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TreeQuestionsTest {
 
@@ -25,9 +26,9 @@ class TreeQuestionsTest {
                             new TreeNode(1, null, null),
                             new TreeNode(3, null, null)
                     ), new TreeNode(6,
-                    new TreeNode(5, null, null),
-                    new TreeNode(7, null, null)
-            )
+                        new TreeNode(5, null, null),
+                        new TreeNode(7, null, null)
+                    )
             ),
             new TreeNode(12,
                     new TreeNode(10,
@@ -81,6 +82,32 @@ class TreeQuestionsTest {
     public void testFirstCommonAncestorWithPaths(BinaryTree root, BinaryTree n1, BinaryTree n2, BinaryTree fca) {
         BinaryTree result = TreeQuestions.getFirstCommonAncestorWithPaths(root, n1, n2);
         assertSame(fca, result);
+    }
+
+    @Test
+    public void testAllPossibleBstSequences() {
+        BinaryTree root = new TreeNode(4,
+                new TreeNode(2,
+                        new TreeNode(1, null, null),
+                        new TreeNode(3, null, null)
+                ), new TreeNode(6,
+                    new TreeNode(5, null, null),
+                    new TreeNode(7, null, null)
+                )
+        );
+
+        List<List<Integer>> allPossibleSequences = TreeQuestions.allPossibleBstSequences(root);
+        int origSize = allPossibleSequences.size();
+        assertEquals(allPossibleSequences.stream().distinct().count(), origSize);
+
+        BinaryTree root2 = TreeNode.builder()
+                .withRoot(2)
+                .withRightChild(new TreeNode(3))
+                .withLeftChild(new TreeNode(1))
+                .build();
+
+        List<List<Integer>> sequences = TreeQuestions.allPossibleBstSequences(root2);
+        assertEquals(Arrays.asList(Arrays.asList(2, 1, 3), Arrays.asList(2, 3, 1)), sequences);
     }
 
     public static Stream<Arguments> isBalancedDataProvider() {

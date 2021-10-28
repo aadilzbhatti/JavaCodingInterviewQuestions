@@ -41,9 +41,9 @@ application {
 tasks.test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
-//    testLogging {
-//        showStandardStreams = true
-//        events = mutableSetOf(TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR, TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
-//    }
+    testLogging {
+        showStandardStreams = true
+        events = mutableSetOf(TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR, TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+    }
 }
 
