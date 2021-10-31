@@ -3,11 +3,16 @@
  */
 package interviewing;
 
+import interviewing.algorithms.bitmanipulation.BinaryString;
+import interviewing.algorithms.bitmanipulation.BitManipulationQuestions;
+import interviewing.datastructures.trees.BinarySearchTree;
 import interviewing.datastructures.trees.BinaryTree;
 import interviewing.datastructures.trees.TreeNode;
 import interviewing.datastructures.trees.TreeQuestions;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
@@ -59,16 +64,40 @@ public class App {
 //
 //        root.breadthFirstSearch(System.out::println);
 
-        BinaryTree root = new TreeNode(4,
-                new TreeNode(2,
-                        new TreeNode(1, null, null),
-                        new TreeNode(3, null, null)
-                ), new TreeNode(6,
-                    new TreeNode(5, null, null),
-                    new TreeNode(7, null, null)
-                )
-        );
+//        BinaryTree root = new TreeNode(4,
+//                new TreeNode(2,
+//                        new TreeNode(1, null, null),
+//                        new TreeNode(3, null, null)
+//                ), new TreeNode(6,
+//                    new TreeNode(5, null, null),
+//                    new TreeNode(7, null, null)
+//                )
+//        );
+//
+//        System.out.println(TreeQuestions.allPossibleBstSequences(root));
 
-        System.out.println(TreeQuestions.allPossibleBstSequences(root));
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.insert(4);
+//        bst.insert(2);
+//        bst.insert(6);
+//        bst.insert(1);
+//        bst.insert(5);
+//        bst.insert(7);
+//        bst.insert(3);
+
+//        bst.printTree();
+//        Map<Integer, Integer> counts = new HashMap<>();
+//        for (int i = 0; i < 100; i++) {
+//            int randomNode = bst.getRandomNode();
+//            counts.putIfAbsent(randomNode, 0);
+//            counts.put(randomNode, counts.get(randomNode) + 1);
+//        }
+//        System.out.println(bst.find(2));
+//        System.out.println(bst.find(12));
+//        bst.delete(6);
+//        bst.printTree();
+//        System.out.println(counts);
+
+        int sequence = BitManipulationQuestions.getLongestSequenceOfOnes(new BinaryString("11011101111"));
     }
 }

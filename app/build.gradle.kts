@@ -43,7 +43,15 @@ tasks.test {
     useJUnitPlatform()
     testLogging {
         showStandardStreams = true
-        events = mutableSetOf(TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR, TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        events = mutableSetOf(TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
     }
+}
+
+tasks.withType<AbstractTestTask> {
+    afterSuite(KotlinClosure2({ desc: TestDescriptor, result: TestResult ->
+        if (desc.parent == null) { // will match the outermost suite
+            println("Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)")
+        }
+    }))
 }
 

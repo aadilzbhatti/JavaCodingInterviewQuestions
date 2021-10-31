@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -108,6 +109,65 @@ class TreeQuestionsTest {
 
         List<List<Integer>> sequences = TreeQuestions.allPossibleBstSequences(root2);
         assertEquals(Arrays.asList(Arrays.asList(2, 1, 3), Arrays.asList(2, 3, 1)), sequences);
+    }
+
+    @Test
+    public void testIsSubtree() {
+        BinaryTree subtree = new TreeNode(12,
+                new TreeNode(10,
+                        new TreeNode(9, null, null),
+                        new TreeNode(11, null, null)
+                ),
+                new TreeNode(14,
+                        new TreeNode(13, null, null),
+                        new TreeNode(15, null, null)
+                )
+        );
+        BinaryTree root = new TreeNode(8,
+                new TreeNode(4,
+                        new TreeNode(2,
+                                new TreeNode(1, null, null),
+                                new TreeNode(3, null, null)
+                        ),
+                        new TreeNode(6,
+                                new TreeNode(5, null, null),
+                                new TreeNode(7, null, null)
+                        )
+                ),
+                subtree
+        );
+
+        assertTrue(TreeQuestions.isSubtreeOf(root, subtree));
+        assertFalse(TreeQuestions.isSubtreeOf(subtree, root));
+    }
+
+    @Test
+    public void testPathsWithSum() {
+        BinaryTree root = TreeNode.builder()
+                .withRoot(1)
+                .withLeftChild(TreeNode.builder()
+                        .withRoot(3)
+                        .withLeftChild(TreeNode.builder()
+                                .withRoot(4)
+                                .withLeftChild(new TreeNode(1))
+                                .build())
+                        .withRightChild(TreeNode.builder()
+                                .withRoot(-2)
+                                .withRightChild(new TreeNode(1))
+                                .build())
+                        .build())
+                .withRightChild(TreeNode.builder()
+                        .withRoot(-5)
+                        .withLeftChild(new TreeNode(7))
+                        .withRightChild(TreeNode.builder()
+                                .withRoot(6)
+                                .withRightChild(new TreeNode(2))
+                                .build())
+                        .build())
+                .build();
+
+        int pathsWithSum = TreeQuestions.pathsWithSum(root, 3);
+        assertEquals(4, pathsWithSum);
     }
 
     public static Stream<Arguments> isBalancedDataProvider() {

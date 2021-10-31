@@ -3,10 +3,8 @@ package interviewing.datastructures.trees;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class TreeQuestions {
@@ -235,5 +233,43 @@ public class TreeQuestions {
             }
         }
         return interleavings;
+    }
+
+    /**
+     * Determines if T2 is a subtree of T1
+     *
+     * @param t1 Parent tree
+     * @param t2 Potential subtree
+     * @return if T2 is a subtree of T1
+     */
+    public static boolean isSubtreeOf(BinaryTree t1, BinaryTree t2) {
+        if (t1 == null && t2 == null) {
+            return true;
+        }
+        if ((t1 == null && t2 != null) || (t1 != null && t2 == null)) {
+            return false;
+        }
+        if (t1 != t2) {
+            return isSubtreeOf(t1.getLeftChild(), t2) || isSubtreeOf(t1.getRightChild(), t2);
+        } else {
+            return isSubtreeOf(t1.getLeftChild(), t2.getLeftChild()) && isSubtreeOf(t1.getRightChild(), t2.getRightChild());
+        }
+    }
+
+    public static int pathsWithSum(BinaryTree root, int sum) {
+        return pathsWithSumHelper(root, sum, sum);
+    }
+
+    public static int pathsWithSumHelper(BinaryTree root, int sum, int origSum) {
+        if (root != null) {
+            if (sum - root.getData() == 0) {
+                return 1;
+            }
+            return pathsWithSumHelper(root.getLeftChild(), sum - root.getData(), origSum) +
+                    pathsWithSumHelper(root.getRightChild(), sum - root.getData(), origSum) +
+                    pathsWithSumHelper(root.getLeftChild(), origSum, origSum) +
+                    pathsWithSumHelper(root.getRightChild(), origSum, origSum);
+        }
+        return 0;
     }
 }
