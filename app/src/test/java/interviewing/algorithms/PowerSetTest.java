@@ -21,6 +21,13 @@ class PowerSetTest {
         assertEquals(output, powerSet);
     }
 
+    @ParameterizedTest
+    @MethodSource("powerSetDataProvider")
+    public void testPowerSetRecursive(Set<Integer> input, Set<Set<Integer>> output) {
+        Set<Set<Integer>> powerSet = PowerSet.powerSetRecursive(input);
+        assertEquals(output, powerSet);
+    }
+
     public static Stream<Arguments> powerSetDataProvider() {
         return Stream.of(
                 Arguments.of(

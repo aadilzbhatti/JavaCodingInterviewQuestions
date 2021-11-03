@@ -1,4 +1,4 @@
-package interviewing.algorithms;
+package interviewing.algorithms.sorting;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,13 +8,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class MergesortTest {
-
+class QuicksortTest {
     @ParameterizedTest
-    @MethodSource("mergesortDataProvider")
+    @MethodSource("quicksortDataProvider")
     public void testMergeSort(int[] arr) {
-        int[] res = Mergesort.mergesort(arr);
-        assertSorted(res);
+        Quicksort.quicksort(arr);
+        assertSorted(arr);
     }
 
     private void assertSorted(int[] arr) {
@@ -23,7 +22,7 @@ class MergesortTest {
         }
     }
 
-    private static Stream<Arguments> mergesortDataProvider() {
+    private static Stream<Arguments> quicksortDataProvider() {
         return Stream.of(
                 Arguments.of(
                         new int[] { 4, 9, 3, 1, 2, 5, 6, 8, 7}

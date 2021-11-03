@@ -1,4 +1,4 @@
-package interviewing;
+package interviewing.algorithms.sorting;
 
 public class Quicksort {
     public static void quicksort(int[] arr) {

@@ -5,14 +5,6 @@ package interviewing;
 
 import interviewing.algorithms.bitmanipulation.BinaryString;
 import interviewing.algorithms.bitmanipulation.BitManipulationQuestions;
-import interviewing.datastructures.trees.BinarySearchTree;
-import interviewing.datastructures.trees.BinaryTree;
-import interviewing.datastructures.trees.TreeNode;
-import interviewing.datastructures.trees.TreeQuestions;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class App {
     public static void main(String[] args) {

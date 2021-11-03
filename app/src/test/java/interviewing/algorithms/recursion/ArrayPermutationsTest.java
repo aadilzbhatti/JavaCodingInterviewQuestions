@@ -1,4 +1,4 @@
-package interviewing.algorithms;
+package interviewing.algorithms.recursion;
 
 import org.junit.jupiter.api.Test;
 

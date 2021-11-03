@@ -1,4 +1,4 @@
-package interviewing.algorithms;
+package interviewing.algorithms.recursion;
 
 import java.util.ArrayList;
 import java.util.List;

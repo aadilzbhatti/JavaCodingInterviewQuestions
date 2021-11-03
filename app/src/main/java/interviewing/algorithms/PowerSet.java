@@ -20,4 +20,24 @@ public class PowerSet {
         }
         return powerSet;
     }
+
+    public static Set<Set<Integer>> powerSetRecursive(Set<Integer> origSet) {
+        if (origSet.size() == 0) {
+            Set<Set<Integer>> ret = new HashSet<>();
+            ret.add(origSet);
+            return ret;
+        }
+        Set<Integer> removed = new HashSet<>(origSet);
+        int element = origSet.iterator().next();
+        removed.remove(element);
+        Set<Set<Integer>> powerSet = powerSetRecursive(removed);
+        Set<Set<Integer>> ret = new HashSet<>();
+        powerSet.forEach(subset -> {
+            Set<Integer> added = new HashSet<>(subset);
+            added.add(element);
+            ret.add(added);
+        });
+        powerSet.addAll(ret);
+        return powerSet;
+    }
 }
