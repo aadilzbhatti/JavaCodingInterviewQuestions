@@ -2,6 +2,7 @@ package interviewing.algorithms.recursion;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,6 +43,48 @@ class ArrayPermutationsTest {
 
         assertEquals(expected.size(), out.size());
         for (List<Integer> expectedPermutation : expected) {
+            assertTrue(out.contains(expectedPermutation));
+        }
+    }
+
+    @Test
+    public void testUniqueStringPermutations() {
+        List<String> out = ArrayPermutations.getPermutations("abd");
+        List<String> expected = Arrays.asList(
+                "abd",
+                "adb",
+                "bad",
+                "bda",
+                "dab",
+                "dba"
+        );
+
+        assertEquals(expected.size(), out.size());
+        for (String expectedPermutation : expected) {
+            assertTrue(out.contains(expectedPermutation));
+        }
+    }
+
+    @Test
+    public void testDuplicateCharsStringPermutation() {
+        List<String> out = ArrayPermutations.getPermutationsWithDuplicates("aabd");
+        List<String> expected = Arrays.asList(
+                "aabd",
+                "aadb",
+                "abad",
+                "adab",
+                "daba",
+                "dbaa",
+                "daab",
+                "abda",
+                "adba",
+                "bada",
+                "baad",
+                "bdaa"
+        );
+
+        assertEquals(expected.size(), out.size());
+        for (String expectedPermutation : expected) {
             assertTrue(out.contains(expectedPermutation));
         }
     }

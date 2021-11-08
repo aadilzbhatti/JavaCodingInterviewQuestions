@@ -38,4 +38,48 @@ public class ArrayPermutations {
         nums[end] = nums[start];
         nums[start] = temp;
     }
+
+    public static List<String> getPermutations(String s) {
+        char[] chars = s.toCharArray();
+        List<String> output = new ArrayList<>();
+        permuteHelper(chars, 0, output, (arr, start, end) -> {
+            char temp = arr[end];
+            arr[end] = arr[start];
+            arr[start] = temp;
+        });
+        return output;
+    }
+
+    private static void permuteHelper(char[] chars, int start, List<String> output, ArraySwap<char[]> swapFunc) {
+        if (start == chars.length) {
+            String res = new String(chars);
+            if (!output.contains(res)) {
+                output.add(res);
+            }
+            return;
+        }
+        for (int i = start; i < chars.length; i++) {
+            swapFunc.swap(chars, start, i);
+            permuteHelper(chars, start + 1, output, swapFunc);
+            swapFunc.swap(chars, start, i);
+        }
+    }
+
+    public static List<String> getPermutationsWithDuplicates(String s) {
+        char[] chars = s.toCharArray();
+        List<String> output = new ArrayList<>();
+        permuteHelper(chars, 0, output, (arr, start, end) -> {
+            if (arr[start] != arr[end]) {
+                char temp = arr[end];
+                arr[end] = arr[start];
+                arr[start] = temp;
+            }
+        });
+        return output;
+    }
+
+    @FunctionalInterface
+    private interface ArraySwap<T> {
+        void swap(T arr, int start, int end);
+    }
 }
