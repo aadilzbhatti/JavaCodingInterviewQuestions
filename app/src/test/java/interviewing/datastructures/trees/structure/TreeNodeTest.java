@@ -1,7 +1,5 @@
 package interviewing.datastructures.trees.structure;
 
-import interviewing.datastructures.trees.structure.BinaryTree;
-import interviewing.datastructures.trees.structure.TreeNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

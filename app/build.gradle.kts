@@ -43,6 +43,8 @@ tasks.test {
     useJUnitPlatform()
     testLogging {
         showStandardStreams = true
+        showStackTraces = true
+        exceptionFormat = TestExceptionFormat.FULL
         events = mutableSetOf(TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
     }
 }

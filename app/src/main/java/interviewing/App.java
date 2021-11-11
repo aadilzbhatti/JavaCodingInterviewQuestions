@@ -5,6 +5,9 @@ package interviewing;
 
 import interviewing.algorithms.bitmanipulation.BinaryString;
 import interviewing.algorithms.bitmanipulation.BitManipulationQuestions;
+import interviewing.algorithms.recursion.NQueens;
+
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -90,6 +93,9 @@ public class App {
 //        bst.printTree();
 //        System.out.println(counts);
 
-        int sequence = BitManipulationQuestions.getLongestSequenceOfOnes(new BinaryString("11011101111"));
+//        int sequence = BitManipulationQuestions.getLongestSequenceOfOnes(new BinaryString("11011101111"));
+
+//        List<List<Integer>> nQueensSolutions = NQueens.placeQueens(8);
+//        System.out.println(nQueensSolutions);
     }
 }

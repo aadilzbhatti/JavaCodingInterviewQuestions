@@ -1,6 +1,5 @@
 package interviewing.datastructures.trees.algorithms;
 
-import interviewing.datastructures.trees.algorithms.FirstCommonAncestor;
 import interviewing.datastructures.trees.structure.BinaryTree;
 import interviewing.datastructures.trees.structure.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class FirstCommonAncestorTest {
     @ParameterizedTest

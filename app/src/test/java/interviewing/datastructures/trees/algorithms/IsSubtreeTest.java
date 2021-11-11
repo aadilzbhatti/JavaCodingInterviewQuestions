@@ -1,11 +1,11 @@
 package interviewing.datastructures.trees.algorithms;
 
-import interviewing.datastructures.trees.algorithms.IsSubtree;
 import interviewing.datastructures.trees.structure.BinaryTree;
 import interviewing.datastructures.trees.structure.TreeNode;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class IsSubtreeTest {
     @Test

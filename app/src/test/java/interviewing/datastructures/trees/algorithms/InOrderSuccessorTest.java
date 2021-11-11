@@ -1,6 +1,5 @@
 package interviewing.datastructures.trees.algorithms;
 
-import interviewing.datastructures.trees.algorithms.InOrderSuccessor;
 import interviewing.datastructures.trees.structure.BinaryTreeWithParent;
 import interviewing.datastructures.trees.structure.TreeNodeWithParent;
 import org.junit.jupiter.params.ParameterizedTest;

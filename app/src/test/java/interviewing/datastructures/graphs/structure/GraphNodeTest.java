@@ -1,6 +1,5 @@
 package interviewing.datastructures.graphs.structure;
 
-import interviewing.datastructures.graphs.structure.GraphNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,5 @@
 package interviewing.datastructures.linkedlists.algorithms;
 
-import interviewing.datastructures.linkedlists.algorithms.FindCycle;
 import interviewing.datastructures.linkedlists.structure.Node;
 import org.junit.jupiter.api.Test;
 
