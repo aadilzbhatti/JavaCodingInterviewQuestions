@@ -6,6 +6,7 @@ package interviewing;
 import interviewing.algorithms.bitmanipulation.BinaryString;
 import interviewing.algorithms.bitmanipulation.BitManipulationQuestions;
 import interviewing.algorithms.recursion.NQueens;
+import interviewing.datastructures.trees.structure.Trie;
 
 import java.util.List;
 
@@ -97,5 +98,10 @@ public class App {
 
 //        List<List<Integer>> nQueensSolutions = NQueens.placeQueens(8);
 //        System.out.println(nQueensSolutions);
+
+        Trie t = Trie.buildTrie(new String[] { "category", "caterpillar", "cat", "dog", "elephant", "eternity"});
+        System.out.println(t);
+        List<String> out = t.getWordsForPrefix("cat");
+        System.out.println(out);
     }
 }
