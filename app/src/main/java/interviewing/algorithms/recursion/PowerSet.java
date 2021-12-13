@@ -2,6 +2,7 @@ package interviewing.algorithms.recursion;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,26 @@ public class PowerSet {
             ret.add(added);
         });
         powerSet.addAll(ret);
+        return powerSet;
+    }
+
+    public static Set<Set<Integer>> powerSetWithBits(Set<Integer> origSet) {
+        int size = 1 << origSet.size();
+        Set<Set<Integer>> powerSet = new HashSet<>();
+        for (int i = 0; i < size; i++) {
+            Set<Integer> sub = new HashSet<>();
+            int bits = i;
+            Iterator<Integer> iter = origSet.iterator();
+            while (iter.hasNext() && bits > 0) {
+                if ((bits & 1) == 1) {
+                    sub.add(iter.next());
+                } else {
+                    iter.next();
+                }
+                bits >>>= 1;
+            }
+            powerSet.add(sub);
+        }
         return powerSet;
     }
 }

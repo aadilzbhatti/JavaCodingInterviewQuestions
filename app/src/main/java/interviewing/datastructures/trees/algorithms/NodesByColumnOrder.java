@@ -49,8 +49,9 @@ public class NodesByColumnOrder {
         return output;
     }
 
-    private static void addNodeWithColumnPriority(Map<BinaryTree, Integer> nodeToColumn, Map<Integer,
-            ColumnPriority> columnPriorities, Deque<BinaryTree> queue, int column, BinaryTree curr) {
+    private static void addNodeWithColumnPriority(Map<BinaryTree, Integer> nodeToColumn,
+                                                  Map<Integer, ColumnPriority> columnPriorities,
+                                                  Deque<BinaryTree> queue, int column, BinaryTree curr) {
 
         nodeToColumn.put(curr, column);
 

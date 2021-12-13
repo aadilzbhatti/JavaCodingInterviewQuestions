@@ -68,6 +68,10 @@ public class BinaryString {
     private void recomputeRepresentation() {
         StringBuilder sb = new StringBuilder();
         int num = number;
+        if (num == 0) {
+            this.representation = "0";
+            return;
+        }
         if (num < 0) {
             int numBits = 0;
             int posNum = num * -1;

@@ -13,4 +13,10 @@ class NQueensTest {
         List<List<Integer>> out = NQueens.placeQueens(8);
         assertEquals(92, out.size());
     }
+
+    @Test
+    public void test2() {
+        List<List<Integer>> out = NQueensAgain.nQueens(8);
+        assertEquals(92, out.size());
+    }
 }
