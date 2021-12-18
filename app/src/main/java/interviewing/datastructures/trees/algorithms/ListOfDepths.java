@@ -2,7 +2,9 @@ package interviewing.datastructures.trees.algorithms;
 
 import interviewing.datastructures.trees.structure.BinaryTree;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class ListOfDepths {
@@ -21,5 +23,27 @@ public class ListOfDepths {
             getListOfDepthsHelper(root.getLeftChild(), output, currDepth + 1);
             getListOfDepthsHelper(root.getRightChild(), output, currDepth + 1);
         }
+    }
+
+    public static List<List<BinaryTree>> getListOfDepthsBFS(BinaryTree root) {
+        List<List<BinaryTree>> output = new ArrayList<>();
+        Deque<BinaryTree> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            List<BinaryTree> level = new ArrayList<>();
+            while (!queue.isEmpty()) {
+                level.add(queue.remove());
+            }
+            for (BinaryTree node : level) {
+                if (node.getRightChild() != null) {
+                    queue.add(node.getRightChild());
+                }
+                if (node.getLeftChild() != null) {
+                    queue.add(node.getLeftChild());
+                }
+            }
+            output.add(level);
+        }
+        return output;
     }
 }

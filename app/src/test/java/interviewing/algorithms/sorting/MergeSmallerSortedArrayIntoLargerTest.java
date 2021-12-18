@@ -13,7 +13,7 @@ class MergeSmallerSortedArrayIntoLargerTest {
     @ParameterizedTest
     @MethodSource("mergeSmallerArrayIntoLargerDataProvider")
     public void testMergeSmallerArrayIntoLarger(int[] larger, int[] smaller, int[] res) {
-        MergeSmallerSortedArrayIntoLarger.mergeLargerSortedArrayIntoLarger(larger, smaller);
+        MergeSmallerSortedArrayIntoLarger.mergeSmallerSortedArrayIntoLarger(larger, smaller);
         assertArrayEquals(larger, res);
     }
 

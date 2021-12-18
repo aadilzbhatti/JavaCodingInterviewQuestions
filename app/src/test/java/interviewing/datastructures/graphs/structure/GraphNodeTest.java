@@ -11,16 +11,16 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GraphNodeTest {
-    private GraphNode root;
+    private GraphNode<Integer> root;
 
     @BeforeEach
     public void setup() {
-        root = new GraphNode(0);
-        GraphNode n1 = new GraphNode(1);
-        GraphNode n2 = new GraphNode(2);
-        GraphNode n3 = new GraphNode(3);
-        GraphNode n4 = new GraphNode(4);
-        GraphNode n5 = new GraphNode(5);
+        root = new GraphNode<>(0);
+        GraphNode<Integer> n1 = new GraphNode<>(1);
+        GraphNode<Integer> n2 = new GraphNode<>(2);
+        GraphNode<Integer> n3 = new GraphNode<>(3);
+        GraphNode<Integer> n4 = new GraphNode<>(4);
+        GraphNode<Integer> n5 = new GraphNode<>(5);
 
         root.addChild(n1);
         root.addChild(n4);
@@ -34,7 +34,7 @@ class GraphNodeTest {
 
     @Test
     public void testBreadthFirstSearch() {
-        List<GraphNode> nodes = new ArrayList<>();
+        List<GraphNode<Integer>> nodes = new ArrayList<>();
         root.breadthFirstSearch(nodes::add);
 
         assertEquals(
@@ -45,7 +45,7 @@ class GraphNodeTest {
 
     @Test
     public void testDepthFirstSearch() {
-        List<GraphNode> nodes = new ArrayList<>();
+        List<GraphNode<Integer>> nodes = new ArrayList<>();
         root.depthFirstSearch(nodes::add);
 
         assertEquals(

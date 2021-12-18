@@ -1,13 +1,16 @@
 package interviewing.datastructures.trees.algorithms;
 
+import interviewing.datastructures.trees.structure.BinarySearchTree;
 import interviewing.datastructures.trees.structure.BinaryTreeWithParent;
 import interviewing.datastructures.trees.structure.TreeNodeWithParent;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 class InOrderSuccessorTest {
@@ -53,5 +56,30 @@ class InOrderSuccessorTest {
                 Arguments.of(lastNode, null),
                 Arguments.of(leafNode, leafNodeSuccessor)
         );
+    }
+
+    @Test
+    public void testInOrderSuccessorForBST() {
+        BinarySearchTree tree = new BinarySearchTree() {{
+            insert(19);
+            insert(7);
+            insert(43);
+            insert(3);
+            insert(11);
+            insert(23);
+            insert(47);
+            insert(2);
+            insert(5);
+            insert(17);
+            insert(13);
+            insert(53);
+            insert(37);
+            insert(29);
+            insert(41);
+            insert(31);
+        }};
+
+        int res = tree.getInOrderSuccessor(23);
+        assertEquals(29, res);
     }
 }

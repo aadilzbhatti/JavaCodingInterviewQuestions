@@ -2,7 +2,7 @@ package interviewing.algorithms.sorting;
 
 public class MergeSmallerSortedArrayIntoLarger {
 
-    public static void mergeLargerSortedArrayIntoLarger(int[] a, int[] b) {
+    public static void mergeSmallerSortedArrayIntoLarger(int[] a, int[] b) {
         assert a.length > b.length;
         int i = 0;
         int j = 0;

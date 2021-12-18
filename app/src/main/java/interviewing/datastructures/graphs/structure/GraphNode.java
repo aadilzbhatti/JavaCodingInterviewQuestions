@@ -6,30 +6,30 @@ import java.util.Deque;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class GraphNode {
-    public int data;
-    public List<GraphNode> children;
+public class GraphNode<T> {
+    public T data;
+    public List<GraphNode<T>> children;
     public boolean visited = false;
 
-    public GraphNode(int data) {
+    public GraphNode(T data) {
         this.data = data;
         children = new ArrayList<>();
     }
 
-    public GraphNode addChild(GraphNode child) {
+    public GraphNode<T> addChild(GraphNode<T> child) {
         children.add(child);
         return this;
     }
 
-    public int getData() {
+    public T getData() {
         return this.data;
     }
 
-    public void breadthFirstSearch(Consumer<GraphNode> consumer) {
-        Deque<GraphNode> queue = new ArrayDeque<>();
+    public void breadthFirstSearch(Consumer<GraphNode<T>> consumer) {
+        Deque<GraphNode<T>> queue = new ArrayDeque<>();
         queue.add(this);
         while (!queue.isEmpty()) {
-            GraphNode curr = queue.pollFirst();
+            GraphNode<T> curr = queue.pollFirst();
             if (!curr.visited) {
                 consumer.accept(curr);
                 curr.visited = true;
@@ -38,7 +38,7 @@ public class GraphNode {
         }
     }
 
-    public void depthFirstSearch(Consumer<GraphNode> consumer) {
+    public void depthFirstSearch(Consumer<GraphNode<T>> consumer) {
         if (!visited) {
             consumer.accept(this);
             visited = true;

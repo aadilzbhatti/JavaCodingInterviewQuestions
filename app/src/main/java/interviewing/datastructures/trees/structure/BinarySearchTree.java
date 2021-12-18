@@ -49,6 +49,23 @@ public class BinarySearchTree {
         }
     }
 
+    public int getInOrderSuccessor(int key) {
+        return inOrderSuccessorHelper(key, root, Integer.MAX_VALUE);
+    }
+
+    private int inOrderSuccessorHelper(int key, BinarySearchTreeNode root, int lowestMax) {
+        if (root == null) {
+            return lowestMax;
+        }
+        if (key >= root.getData() && root.getRightChild() != null) {
+            return inOrderSuccessorHelper(key, (BinarySearchTreeNode) root.getRightChild(), lowestMax);
+        }
+        if (key < root.getData() && root.getData() < lowestMax) {
+            return inOrderSuccessorHelper(key, (BinarySearchTreeNode) root.getLeftChild(), root.getData());
+        }
+        return lowestMax;
+    }
+
     public void printTree() {
         root.printTree();
     }
