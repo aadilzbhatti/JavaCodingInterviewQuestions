@@ -24,7 +24,7 @@ public class AllPossibleBstSequences {
 
     public static List<List<Integer>> getInterleavingOfArrays(List<Integer> a1, List<Integer> a2) {
         List<List<Integer>> interleavings = new ArrayList<>();
-        getInterleavingHelper(a1,  a2, interleavings, new ArrayList<>());
+        getInterleavingHelper(a1, a2, interleavings, new ArrayList<>());
         return interleavings;
     }
 

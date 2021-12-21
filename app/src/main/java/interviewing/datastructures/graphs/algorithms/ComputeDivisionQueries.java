@@ -48,7 +48,6 @@ public class ComputeDivisionQueries {
         GraphNode<String> start = vertices.get(qStart);
         GraphNode<String> end = vertices.get(qEnd);
         Deque<GraphNode<String>> stack = new ArrayDeque<>();
-        Set<GraphNode<String>> seen = new HashSet<>();
         Map<GraphNode<String>, GraphNode<String>> prev = new HashMap<>();
         stack.push(start);
         double res = 1.0;

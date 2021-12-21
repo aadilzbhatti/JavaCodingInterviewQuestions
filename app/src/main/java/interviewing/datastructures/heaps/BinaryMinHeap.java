@@ -47,6 +47,9 @@ public class BinaryMinHeap<T extends Comparable<T>> implements MinHeap<T> {
         return values.toString();
     }
 
+    /**
+     * We repeatedly swap the new value (added to the end of the list) with its parent until it is smaller than its child
+     */
     private void bubbleUp(int index) {
         int p = getParentIndex(index);
         while (index > 0 && values.get(index).compareTo(values.get(p)) < 0) {
@@ -70,7 +73,7 @@ public class BinaryMinHeap<T extends Comparable<T>> implements MinHeap<T> {
            } else {
                 if (l < currIndex && values.get(l).compareTo(values.get(index)) < 0) {
                    j = l;
-               }
+                }
            }
            if (j >= 0) swap(index, j);
            index = j;

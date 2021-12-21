@@ -14,7 +14,7 @@ public class FindKthToLast {
             stack.pop();
         }
         if (stack.isEmpty()) {
-            return  null;
+            return null;
         }
         return stack.peek();
     }
