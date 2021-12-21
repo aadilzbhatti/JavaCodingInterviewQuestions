@@ -43,13 +43,13 @@ class DjikstraTest {
         }};
                 
         List<GraphNode<Integer>> path = new ArrayList<>();
-        int pathLength = Djikstra.djikstra(g, g1, g6, path);
-        assertEquals(76, pathLength);
+        double pathLength = Djikstra.djikstra(g, g1, g6, path);
+        assertEquals(76.0, pathLength);
         assertEquals(Arrays.asList(g1, g2, g6), path);
 
         List<GraphNode<Integer>> noPath = new ArrayList<>();
-        int noPathLength = Djikstra.djikstra(g, g6, g1, noPath);
-        assertEquals(Integer.MAX_VALUE, noPathLength);
+        double noPathLength = Djikstra.djikstra(g, g6, g1, noPath);
+        assertEquals(Double.MAX_VALUE, noPathLength);
         assertEquals(Collections.emptyList(), noPath);
     }
 }

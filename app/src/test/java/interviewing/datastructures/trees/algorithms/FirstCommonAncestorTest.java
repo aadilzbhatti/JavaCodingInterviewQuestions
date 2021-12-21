@@ -25,6 +25,13 @@ class FirstCommonAncestorTest {
         assertSame(fca, result);
     }
 
+    @ParameterizedTest
+    @MethodSource("firstCommonAncestorDataProvider")
+    public void testFirstCommonAncestorRec2(BinaryTree root, BinaryTree n1, BinaryTree n2, BinaryTree fca) {
+        BinaryTree result = LowestCommonAncestor.getLowestCommonAncestor(root, n1, n2);
+        assertSame(fca, result);
+    }
+
     public static Stream<Arguments> firstCommonAncestorDataProvider() {
         BinaryTree n1 = new TreeNode(1);
         BinaryTree n2 = new TreeNode(2);

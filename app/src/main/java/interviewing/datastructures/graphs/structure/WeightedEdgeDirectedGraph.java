@@ -2,13 +2,13 @@ package interviewing.datastructures.graphs.structure;
 
 public class WeightedEdgeDirectedGraph<T> extends DirectedGraph<T> {
 
-    public void addEdge(GraphNode<T> u, GraphNode<T> v, int weight) {
+    public void addEdge(GraphNode<T> u, GraphNode<T> v, double weight) {
         addVertex(u);
         addVertex(v);
         addDirectedEdge(u, v, weight);
     }
 
-    public int getWeightOfEdgeBetween(GraphNode<T> u, GraphNode<T> v) throws Exception {
+    public double getWeightOfEdgeBetween(GraphNode<T> u, GraphNode<T> v) throws Exception {
         if (!edgeExistsBetween(u, v)) {
             throw new Exception("No edge exists between " + u + " and " + v);
         }

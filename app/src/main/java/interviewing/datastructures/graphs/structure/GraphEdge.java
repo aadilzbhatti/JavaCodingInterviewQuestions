@@ -3,9 +3,9 @@ package interviewing.datastructures.graphs.structure;
 public class GraphEdge<T> {
     private GraphNode<T> start;
     private GraphNode<T> end;
-    private int weight;
+    private double weight;
 
-    public GraphEdge(GraphNode<T> u, GraphNode<T> v, int weight) {
+    public GraphEdge(GraphNode<T> u, GraphNode<T> v, double weight) {
         this.start = u;
         this.end = v;
         this.weight = weight;
@@ -19,7 +19,7 @@ public class GraphEdge<T> {
         return end;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

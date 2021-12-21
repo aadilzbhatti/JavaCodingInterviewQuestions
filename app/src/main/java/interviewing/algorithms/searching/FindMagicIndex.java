@@ -1,4 +1,4 @@
-package interviewing.algorithms.recursion;
+package interviewing.algorithms.searching;
 
 public class FindMagicIndex {
     public static int findMagicIndex(int[] arr) {

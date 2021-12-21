@@ -73,11 +73,8 @@ public class BinaryString {
             return;
         }
         if (num < 0) {
-            int numBits = 0;
+            int numBits = 31;
             int posNum = num * -1;
-            while (Math.pow(2, numBits) < posNum) {
-                numBits++;
-            }
             num = (int) (Math.pow(2, numBits) - posNum);
             sb.append(1).append("0".repeat(numBits));
             int i = sb.length() - 1;

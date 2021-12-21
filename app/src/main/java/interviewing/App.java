@@ -3,11 +3,10 @@
  */
 package interviewing;
 
-import interviewing.algorithms.bitmanipulation.BinaryString;
-import interviewing.algorithms.bitmanipulation.BitManipulationQuestions;
-import interviewing.algorithms.recursion.NQueens;
-import interviewing.datastructures.trees.structure.Trie;
+import interviewing.datastructures.tries.structure.MapTrie;
+import interviewing.datastructures.tries.structure.Trie;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class App {
@@ -99,7 +98,7 @@ public class App {
 //        List<List<Integer>> nQueensSolutions = NQueens.placeQueens(8);
 //        System.out.println(nQueensSolutions);
 
-        Trie t = Trie.buildTrie(new String[] { "category", "caterpillar", "cat", "dog", "elephant", "eternity"});
+        Trie t = MapTrie.buildTrie(Arrays.asList("category", "caterpillar", "cat", "dog", "elephant", "eternity"));
         System.out.println(t);
         List<String> out = t.getWordsForPrefix("cat");
         System.out.println(out);

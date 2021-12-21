@@ -1,4 +1,4 @@
-package interviewing.datastructures.trees.structure;
+package interviewing.datastructures.tries.structure;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -8,21 +8,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Trie {
+public class MapTrie extends TrieImpl {
     private Character prefixChar;
     private boolean isEndOfWord;
     private Map<Character, Trie> childTries;
 
-    public Trie() {
+    public MapTrie() {
         this(null);
     }
 
-    public Trie(Character prefixChar) {
+    public MapTrie(Character prefixChar) {
         this.prefixChar = prefixChar;
         this.isEndOfWord = false;
         this.childTries = new HashMap<>();
     }
 
+    @Override
     public List<String> getWordsForPrefix(String prefix) {
         List<String> output = new ArrayList<>();
         if (prefix.isEmpty()) {
@@ -51,28 +52,61 @@ public class Trie {
         return output;
     }
 
-    private void addNewChild(Character c) {
-        childTries.putIfAbsent(c, new Trie(c));
+    @Override
+    public Collection<Trie> children() {
+        return childTries.values();
     }
 
-    private Trie getChild(Character c) {
-        return childTries.get(c);
+    @Override
+    public Character getCharacter() {
+        return prefixChar;
     }
 
-    private void addWord(String word) {
+    @Override
+    public void insert(String word) {
         if (word.isEmpty()) {
             this.isEndOfWord = true;
         } else {
             this.addNewChild(word.charAt(0));
-            this.getChild(word.charAt(0)).addWord(word.substring(1));
+            this.getChild(word.charAt(0)).insert(word.substring(1));
         }
     }
 
-    public static Trie buildTrie(String[] words) {
-        Trie res = new Trie();
+    @Override
+    public boolean contains(String word) {
+        if (word.isEmpty()) {
+            return this.isEndOfWord;
+        }
+        if (this.getChild(word.charAt(0)) == null) {
+            return false;
+        }
+        return this.getChild(word.charAt(0)).contains(word.substring(1));
+    }
+
+    private void addNewChild(Character c) {
+        childTries.putIfAbsent(c, new MapTrie(c));
+    }
+
+    @Override
+    public boolean hasChild(char c) {
+        return childTries.containsKey(c);
+    }
+
+    @Override
+    public MapTrie getChild(char c) {
+        return (MapTrie) childTries.get(c);
+    }
+
+    @Override
+    public boolean isEndOfWord() {
+        return isEndOfWord;
+    }
+
+    public static MapTrie buildTrie(Collection<String> words) {
+        MapTrie res = new MapTrie();
 
         for (String word : words) {
-            res.addWord(word);
+            res.insert(word);
         }
 
         return res;

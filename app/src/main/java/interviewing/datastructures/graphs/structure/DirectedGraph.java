@@ -9,7 +9,7 @@ public class DirectedGraph<T> extends GraphImpl<T> {
         addDirectedEdge(u, v, 1);
     }
 
-    protected void addDirectedEdge(GraphNode<T> u, GraphNode<T> v, int weight) {
+    protected void addDirectedEdge(GraphNode<T> u, GraphNode<T> v, double weight) {
         edges.get(u).add(new GraphEdge<>(u, v, weight));
     }
 
