@@ -22,18 +22,11 @@ public class GrayCode {
         }
         for (int i = 0; i <= max; i++) {
             if (!curr.contains(i)) {
-                if (i == 0 && curr.size() == 0) {
+                if ((i == 0 && curr.size() == 0) || setBitsDifferInOnlyOnePlace(i, lastAddedVal)) {
                     Integer val = i;
                     curr.add(val);
-                    compute(max, 0, curr, all);
+                    compute(max, val, curr, all);
                     curr.remove(val);
-                } else {
-                    if (setBitsDifferInOnlyOnePlace(i, lastAddedVal)) {
-                        Integer val = i;
-                        curr.add(val);
-                        compute(max, val, curr, all);
-                        curr.remove(val);
-                    }
                 }
             }
         }
